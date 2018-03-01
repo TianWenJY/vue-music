@@ -20,3 +20,21 @@ export function getSingerList() {
 	})
 	return jsonp(url,data,options)
 }
+
+export function getSingerDetail(singerId) {
+	const url = 'https://c.y.qq.com/rsc/fcgi-bin/fcg_order_singer_getnum.fcg'
+
+	const data = Object.assign({},commonParams,{
+       hostUin:0,
+       needNewCode:0,
+       platform: 'yqq',
+       order: 'listen',
+       begin: 0,
+       num: 100,
+       songstatus: 1,
+       g_tk: 1664029744,
+       singermid: singerId
+	})
+
+	return jsonp(url,data,options)
+}
